@@ -9,6 +9,29 @@ const UserPicture = ({ user }) => {
   return <img src={user.profilePicture} alt="Profile" />;
 };
 
+
+
+const UserName = ({ user }) => {
+  return (
+    <div>
+      <p>{`${user.firstName} ${user.lastName}`}</p>
+    </div>
+  );
+};
+
+const UserSchool = ({ user }) => {
+  return <p>{user.school}</p>;
+};
+
+const UserEmail = ({ user }) => {
+  return <p>{user.email}</p>;
+};
+
+const UserClassLevel = ({ classLevel }) => {
+  const textColor = classLevel !== "Freshmen" ? "green" : "red";
+  return <p style={{ color: textColor }}>{classLevel}</p>;
+};
+
 //for user display
 const User = ({user}) => {
   return (
@@ -16,26 +39,26 @@ const User = ({user}) => {
       <UserPicture user={user} />
       <div>
         <ul>
+          
+          <li><strong>Full name: </strong><UserName user={user}/></li>
+          
+        </ul>
+
+        <ul>
           <div>
-          <li><strong>Full name: </strong>{user.firstName} {user.lastName}</li>
+          <li><strong>Class Level: </strong> <UserClassLevel classLevel={user.classLevel} /> </li>
           </div>
         </ul>
 
         <ul>
           <div>
-          <li><strong>Class Level: </strong> <span style ={{ color: user.classLevel === "Freshmen" ? "green" : "black" }}>{user.classLevel}</span></li>
+          <li><strong>School: </strong><UserSchool user={user} /></li>
           </div>
         </ul>
 
         <ul>
           <div>
-          <li><strong>School: </strong>{user.school}</li>
-          </div>
-        </ul>
-
-        <ul>
-          <div>
-          <li><strong>Email: </strong>{user.email}</li>
+          <li><strong>Email: </strong><UserEmail user={user} /></li>
           </div>
         </ul>
       </div>
