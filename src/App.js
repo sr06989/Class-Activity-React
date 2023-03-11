@@ -28,7 +28,7 @@ const UserEmail = ({ user }) => {
 };
 
 const UserClassLevel = ({ classLevel }) => {
-  const textColor = classLevel !== "Freshmen" ? "green" : "red";
+  const textColor = classLevel === "Freshmen" ? "green" : "black";
   return <p style={{ color: textColor }}>{classLevel}</p>;
 };
 
